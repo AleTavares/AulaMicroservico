@@ -39,10 +39,10 @@ docker run -d --name my-postgres-container -p 2000:5432 my-postgres-image
 Você pode se conectar ao PostgreSQL utilizando um cliente PostgreSQL, como dbeaver, psql, ou qualquer ferramenta de gerenciamento de banco de dados que suporte PostgreSQL. Utilize as seguintes credenciais:
 ```
 Host: localhost
-Porta: 5432
-Banco de Dados: mydatabase
-Usuário: myuser
-Senha: mypassword
+Porta: 3000
+Banco de Dados: northwind
+Usuário: faat
+Senha: faat
 ```
-### Passo 4: Personalizar
-Você pode personalizar o banco de dados, usuário e senha alterando as variáveis de ambiente no Dockerfile. Além disso, você pode adicionar scripts SQL adicionais ao diretório docker-entrypoint-initdb.d/ para serem executados na inicialização do contêiner.
+> [!IMPORTANT]
+> Você pode personalizar o banco de dados, usuário e senha alterando as variáveis de ambiente no Dockerfile. Além disso, você pode adicionar scripts SQL adicionais ao diretório docker-entrypoint-initdb.d/ para serem executados na inicialização do contêiner.
