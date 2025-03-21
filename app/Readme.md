@@ -87,3 +87,15 @@ Criar Categoria
   ```sh
   curl -X DELETE http://localhost:5000/categories/1
   ```
+## Testes Unitários
+O arquivo test_crudCateg.py cobre os seguintes casos de teste para o crudCateg.py:
+1. test_create_category_success: Testa a criação bem-sucedida de uma categoria.
+2. test_create_category_db_failure: Testa a falha na criação de uma categoria devido a problemas de conexão com o banco de dados.
+3. test_read_category_success: Testa a leitura bem-sucedida de uma categoria.
+4. test_read_category_not_found: Testa a leitura de uma categoria que não existe.
+
+Para executar os testes, você pode usar o seguinte comando:
+
+```sh
+python -m unittest app/test_crudCateg.py
+```
