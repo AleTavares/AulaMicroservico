@@ -24,6 +24,12 @@ Este Repositorio foi criado para ensinar os alunos da UniFAAT a trabalharem com 
 Para rodar o projeto utilizando o Docker-Compose, siga os passos abaixo:
 
 1. Certifique-se de que você tem o Docker e o Docker-Compose instalados na sua máquina.
+```sh
+docker --version
+``` 
+```sh
+docker-compose --version
+``` 
 
 2. No diretório raiz do projeto, execute o seguinte comando para parar e remover quaisquer contêineres existentes:
 
@@ -43,6 +49,7 @@ Para rodar o projeto utilizando o Docker-Compose, siga os passos abaixo:
     docker-compose up --build
     ```
 
-5. O serviço Flask estará disponível em `http://localhost:5000` e o banco de dados PostgreSQL estará disponível na porta `5432`.
+5. O serviço Flask estará disponível em `http://localhost:5000` e o banco de dados PostgreSQL estará disponível na porta `3000`.
 
-Esses passos irão construir e iniciar os contêineres definidos no `docker-compose.yml`, garantindo que o ambiente esteja configurado corretamente.
+>[!NOTE]
+> Esses passos irão construir e iniciar os contêineres definidos no `docker-compose.yml`, garantindo que o ambiente esteja configurado corretamente.
