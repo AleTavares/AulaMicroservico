@@ -13,11 +13,11 @@ Este Repositorio foi criado para ensinar os alunos da UniFAAT a trabalharem com 
 │ │ ├── bd.py *`Arquivo python com função para conectar no Banco de Dados`<br>
 │ │ └── paramsBD.yml *`Arquico com as configurações para conexão com o Banco de Dados`<br>
 │ ├── crudCateg.py *`MicroServiso de CRUD de Categorias`<br>
-│ ├── test_crudCateg.py *`Arquivo Python com os Testes unitários`
-│ └── [Readme.md](app/Readme.md) *`Instruções para inicializar o APP`
-├── docker-compose.yml *`define a configuração para dois serviços: app e db.`
-├── Dockerfile *`define a configuração para construir uma imagem Docker para uma aplicação Flask.`
-└── Readme.md *`Arquivo com instruções gerais`
+│ ├── test_crudCateg.py *`Arquivo Python com os Testes unitários`<br>
+│ └── [Readme.md](app/Readme.md) *`Instruções para inicializar o APP`<br>
+├── docker-compose.yml *`define a configuração para dois serviços: app e db.`<br>
+├── Dockerfile *`define a configuração para construir uma imagem Docker para uma aplicação Flask.`<br>
+└── Readme.md *`Arquivo com instruções gerais`<br>
 
 ## Como Rodar o Docker-Compose
 
