@@ -97,5 +97,5 @@ O arquivo test_crudCateg.py cobre os seguintes casos de teste para o crudCateg.p
 Para executar os testes, você pode usar o seguinte comando:
 
 ```sh
-python -m unittest app/test_crudCateg.py
+pytest test_crudCateg.py
 ```
