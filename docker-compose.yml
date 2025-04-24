@@ -21,7 +21,7 @@ services:
       POSTGRES_PASSWORD: faat
       POSTGRES_DB: northwind
     ports:
-      - "3000:5432"
+      - "3001:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -33,13 +33,40 @@ services:
     container_name: prometheus
     ports:
       - "9090:9090"
+    networks:
+      - monitoring_network
+
+  grafana:
+    build:
+      context: ./grafana
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring_network
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    ports:
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
     networks:
       - monitoring_network
 
 volumes:
   postgres_data:
+  grafana_data:
 
 networks:
   monitoring_network:

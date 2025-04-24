@@ -1,0 +1,50 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Flask App Metrics",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "HTTP Success Count",
+        "targets": [
+          {
+            "expr": "http_success_count",
+            "legendFormat": "{{endpoint}} - {{status}}"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "HTTP Error Count",
+        "targets": [
+          {
+            "expr": "http_error_count",
+            "legendFormat": "{{endpoint}} - {{status}}"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Container CPU Usage",
+        "targets": [
+          {
+            "expr": "container_cpu_usage_seconds_total",
+            "legendFormat": "{{container}}"
+          }
+        ]
+      },
+      {
+        "type": "graph",
+        "title": "Container Memory Usage",
+        "targets": [
+          {
+            "expr": "container_memory_usage_bytes",
+            "legendFormat": "{{container}}"
+          }
+        ]
+      }
+    ],
+    "schemaVersion": 16,
+    "version": 0
+  }
+}
