@@ -1,9 +1,3 @@
-# Este arquivo docker-compose.yml define a configuração para dois serviços: app e db.
-# O serviço 'app' é uma aplicação Flask que será construída a partir do Dockerfile no diretório atual.
-# Ele expõe a porta 5000 e monta o diretório atual no contêiner em /app.
-# O serviço 'db' é um banco de dados PostgreSQL que será construído a partir do Dockerfile no diretório InfraBD.
-# Ele define variáveis de ambiente para configurar o banco de dados e expõe a porta 5432.
-# O volume 'postgres_data' é usado para persistir os dados do banco de dados.
 version: '3.8'
 
 services:
@@ -16,6 +10,8 @@ services:
       - .:/app
     depends_on:
       - db
+    networks:
+      - monitoring_network
 
   db:
     build: ./InfraBD
@@ -28,6 +24,23 @@ services:
       - "3000:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - monitoring_network
+
+  prometheus:
+    build:
+      context: ./prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - monitoring_network
 
 volumes:
   postgres_data:
+
+networks:
+  monitoring_network:
+    driver: bridge
