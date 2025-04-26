@@ -1,13 +1,9 @@
 FROM grafana/grafana:latest
 
-# Copia os arquivos de provisionamento
-COPY provisioning /etc/grafana/provisioning
+# Instalar plugins necessários
+RUN grafana-cli plugins install grafana-piechart-panel \
+    && grafana-cli plugins install grafana-clock-panel \
+    && grafana-cli plugins install grafana-simple-json-datasource
 
-# Define o diretório de trabalho
-WORKDIR /usr/share/grafana
-
-# Expõe a porta padrão do Grafana
-EXPOSE 3000
-
-# Comando padrão para iniciar o Grafana
-CMD ["grafana-server", "--homepath=/usr/share/grafana"]
+# Configuração adicional (se necessário)
+# COPY custom.ini /etc/grafana/grafana.ini
