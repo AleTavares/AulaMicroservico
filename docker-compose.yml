@@ -1,18 +1,6 @@
 version: '3.8'
 
 services:
-  app:
-    build: .
-    container_name: flask_app
-    ports:
-      - "5000:5000"
-    volumes:
-      - .:/app
-    depends_on:
-      - db
-    networks:
-      - monitoring_network
-
   db:
     build: ./InfraBD
     container_name: postgres_db
@@ -51,18 +39,6 @@ services:
       - grafana_data:/var/lib/grafana
     depends_on:
       - prometheus
-    networks:
-      - monitoring_network
-
-  cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
-    container_name: cadvisor
-    ports:
-      - "8080:8080"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
     networks:
       - monitoring_network
 
